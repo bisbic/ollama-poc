@@ -18,4 +18,4 @@ services:
       - OLLAMA_MODELS=/ollama/models
 
 # Manualy download the model
-# docker-compose exec ollama ollama pull codellama 
+# docker compose exec ollama-poc-ollama-1 ollama pull codellama 
