@@ -28,3 +28,30 @@ curl http://localhost:11434/api/generate -d '{
 "stream": false
 }'
 ```
+
+## Using codex cli with ollama models
+
+1. (Install codex cli from here)[https://github.com/openai/codex-cli]
+2. Set configuration file `~/.codex/config.json` to:
+```json
+{
+  "model": "qwen2.5-coder:7b",
+  "provider": "ollama",
+  "providers": {
+    "ollama": {
+      "name": "Ollama",
+      "baseURL": "http://localhost:11434/v1",
+      "envKey": "OLLAMA_API_KEY"
+    }
+  },
+  "history": {
+    "maxSize": 1000,
+    "saveHistory": true,
+    "sensitivePatterns": []
+  }
+}
+```
+3. Run codex cli
+```bash
+codex --model qwen2.5-coder:7b --provider ollama
+```
